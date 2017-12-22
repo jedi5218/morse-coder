@@ -10,20 +10,19 @@ SerialInputReciever &SerialInputReciever::instance()
 
 void SerialInputReciever::appendData()
 {
-    while( Serial.available() )
-        instance().queue.push_back( Serial.recieve() );
+   while( Serial.available() )
+       Serial.read();
+
 }
 
 bool SerialInputReciever::hasData()
 {
-    return queue.size();
+
 }
 
 char SerialInputReciever::pop()
 {
-    char retval=queue.front();
-    queue.pop();
-    return retval;
+
 }
 
 SerialInputReciever::SerialInputReciever()

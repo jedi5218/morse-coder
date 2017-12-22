@@ -1,15 +1,16 @@
 #ifndef SERIAL_INPUT_RECIEVER
 #define SERIAL_INPUT_RECIEVER
+#include "CDCSerialClass.h"
 
-#include <queue>
-#include <map>
+extern CDCSerialClass Serial;
 
 class SerialInputReciever
 {
-    std::queue<char> queue;
+    bool data=true;
 public:
     static SerialInputReciever& instance();
     static void appendData();
+    bool hasData();
     char pop();
 private:
     SerialInputReciever();
