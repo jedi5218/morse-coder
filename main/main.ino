@@ -7,6 +7,22 @@ void setup() {
 }
 
 void loop() {
+    auto& input=SerialInputReciever::instance();
 
+    if(input.hasData())
+    {
+        input.pop();
+        digitalWrite(signalLED,HIGH);
+        Delay(500);
+        digitalWrite(signalLED,LOW);
+        Delay(500);
+    }
+
+
+}
+
+void serialEvent()
+{
+    SerialInputReciever::appendData();
 }
 
