@@ -1,4 +1,4 @@
-#include <stack>
+#include "serialInputReciever.h"
 unsigned int signalLED=2;
 
 void setup() {
@@ -7,5 +7,6 @@ void setup() {
 }
 
 void loop() {
-  std::stack<char> stack;
+
 }
+
