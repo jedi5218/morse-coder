@@ -1,4 +1,5 @@
 #include "serialInputReciever.h"
+#include "morseEncoder.h"
 unsigned int signalLED=2;
 bool enabled=true;
 void setup() {
@@ -8,26 +9,16 @@ void setup() {
   Serial.println("HelloWorld");
 }
 
-void loop() {
+void loop()
+{
+
 
     SerialInputReciever& input=SerialInputReciever::instance();
 
     if(input.hasData())
     {
-        Serial.println(input.pop());
-        digitalWrite(signalLED,HIGH);
-        delay(100);
-        digitalWrite(signalLED,LOW);
-        delay(300);
-        digitalWrite(signalLED,HIGH);
-        delay(100);
-        digitalWrite(signalLED,LOW);
-        delay(500);
+        encodeSymbol(input.pop(),10);
     }
-    digitalWrite(signalLED,HIGH);
-    delay(500);
-    digitalWrite(signalLED,LOW);
-    delay(500);
 }
 
 void serialEvent()
