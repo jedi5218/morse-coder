@@ -3,13 +3,14 @@
 #include "new.h"
 #include <stdint.h>
 
+#define QUEUE_SIZE 255
 class CharQueue
 {
-    char* queueArray;
-    uint16_t size,begin,end;
+    char queueArray[QUEUE_SIZE];
+    uint16_t begin,end;
     uint16_t currentSize();
 public:
-    CharQueue(uint16_t size);
+    CharQueue();
     ~CharQueue();
     char pop();
     bool push(char);

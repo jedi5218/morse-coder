@@ -1,12 +1,13 @@
 #ifndef SERIAL_INPUT_RECIEVER
 #define SERIAL_INPUT_RECIEVER
 #include "CDCSerialClass.h"
+extern CDCSerialClass Serial;
 #include "queue.h"
 
-extern CDCSerialClass Serial;
 
 class SerialInputReciever
 {
+    CharQueue queue;
     bool data=true;
 public:
     static SerialInputReciever& instance();

@@ -14,14 +14,20 @@ void loop() {
 
     if(input.hasData())
     {
-        Serial.println("Symbol output");
-        input.pop();
+        Serial.println(input.pop());
         digitalWrite(signalLED,HIGH);
-        delay(500);
+        delay(100);
+        digitalWrite(signalLED,LOW);
+        delay(300);
+        digitalWrite(signalLED,HIGH);
+        delay(100);
         digitalWrite(signalLED,LOW);
         delay(500);
     }
-
+    digitalWrite(signalLED,HIGH);
+    delay(500);
+    digitalWrite(signalLED,LOW);
+    delay(500);
 }
 
 void serialEvent()

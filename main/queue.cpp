@@ -1,19 +1,22 @@
 #include "queue.h"
 
+#include "CDCSerialClass.h"
+extern CDCSerialClass Serial;
+
+
 uint16_t CharQueue::currentSize()
 {
     if(begin>end)
-        return end+size-begin;
+        return end+QUEUE_SIZE-begin;
+    else return end-begin;
 }
 
-CharQueue::CharQueue(uint16_t size):size(size),begin(0),end(0)
+CharQueue::CharQueue():begin(0),end(0)
 {
-    queueArray=new char[size];
 }
 
 CharQueue::~CharQueue()
 {
-    delete queueArray;
 }
 
 char CharQueue::pop()
@@ -21,7 +24,7 @@ char CharQueue::pop()
     if(begin!=end)
     {
         char retval=queueArray[end];
-        end=(end+size-1)%size;
+        end=(end+1)%QUEUE_SIZE;
         return retval;
     }
     else return 0;
@@ -29,12 +32,21 @@ char CharQueue::pop()
 
 bool CharQueue::push(char value)
 {
-    if(currentSize()>=size)
+    if(currentSize()>=QUEUE_SIZE)
+    {
+        Serial.println("OVERFLOW");
+        Serial.print("Size: ");
+        Serial.print(QUEUE_SIZE);
+        Serial.print(" current: ");
+        Serial.println(currentSize());
         return false;
+    }
     else
     {
-        begin=(begin+1)%size;
+        Serial.print("Inserting value into stack: ");
+        Serial.println(value);
         queueArray[begin]=value;
+        begin=(begin+1)%QUEUE_SIZE;
         return true;
     }
 }
