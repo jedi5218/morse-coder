@@ -43,8 +43,6 @@ bool CharQueue::push(char value)
     }
     else
     {
-        Serial.print("Inserting value into stack: ");
-        Serial.println(value);
         queueArray[begin]=value;
         begin=(begin+1)%QUEUE_SIZE;
         return true;

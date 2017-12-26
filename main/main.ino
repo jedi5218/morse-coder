@@ -24,9 +24,5 @@ void loop()
 void serialEvent()
 {
     SerialInputReciever::appendData();
-    digitalWrite(signalLED,HIGH);
-    delay(100);
-    digitalWrite(signalLED,LOW);
-    delay(400);
 }
 

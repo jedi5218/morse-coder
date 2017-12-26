@@ -1,7 +1,10 @@
 #ifndef MORSE_ENCODER
 #define MORSE_ENCODER
 #include <cstring>
+
  extern unsigned int signalLED;
+#include "CDCSerialClass.h"
+extern CDCSerialClass Serial;
 const PROGMEM char* morseAlphabet[] = {
     " ",//0x20
     "--..--",
@@ -61,14 +64,27 @@ const PROGMEM char* morseAlphabet[] = {
     ".--",
     "-..-",
     "-.--",
-    "--.."//Z
+    "--..",//Z
+    "-.--.-",
+    "-..-.",
+    "-.--.-",
+    "-.-. ..-. -..-",
+    "-....-",
+    ".----.",//0x60
+    "-....-",
+    "........"//0x7f
     //TODO: fill the remains of the table
 };
 
 void encodeSymbol(char symbol,float wordsPerMin)
 {
     int dot=60000/(55*wordsPerMin);
-    symbol-=0x20;
+
+    if(symbol>0x60&&symbol<0x80)
+        symbol-=0x40;
+    else
+        symbol-=0x20;
+
     const char* code=morseAlphabet[symbol];
     for(unsigned int i=0;i<strlen(code);i++)
     {

@@ -9,13 +9,8 @@ SerialInputReciever &SerialInputReciever::instance()
 
 void SerialInputReciever::appendData()
 {
-    Serial.println("log: append data");
    while( Serial.available()>0 )
-   {
-       Serial.println(Serial.available());
-       if(!instance().queue.push(Serial.read()))
-               Serial.println("queue owerflow");
-   }
+       instance().queue.push(Serial.read());
 }
 
 bool SerialInputReciever::hasData()
@@ -25,7 +20,6 @@ bool SerialInputReciever::hasData()
 
 char SerialInputReciever::pop()
 {
-    Serial.println("log: data taken out");
     return queue.pop();
 }
 
