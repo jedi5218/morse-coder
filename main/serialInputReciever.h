@@ -1,7 +1,7 @@
 #ifndef SERIAL_INPUT_RECIEVER
 #define SERIAL_INPUT_RECIEVER
-#include "CDCSerialClass.h"
-extern CDCSerialClass Serial;
+#include "HardwareSerial.h"
+extern HardwareSerial Serial;
 #include "queue.h"
 
 
@@ -9,11 +9,13 @@ class SerialInputReciever
 {
     CharQueue queue;
     bool data=true;
+    float speed=20;
 public:
     static SerialInputReciever& instance();
     static void appendData();
     bool hasData();
     char pop();
+    float outputSpeed();
 private:
     SerialInputReciever();
 //    SerialInputReciever(const SerialInputReciever& root) = delete;
