@@ -1,7 +1,7 @@
 #ifndef SERIAL_INPUT_RECIEVER
 #define SERIAL_INPUT_RECIEVER
-#include "CDCSerialClass.h"
-extern CDCSerialClass Serial;
+#include "HardwareSerial.h"
+extern HardwareSerial Serial;
 #include "queue.h"
 
 

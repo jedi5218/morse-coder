@@ -1,7 +1,9 @@
 #include "serialInputReciever.h"
 #include "morseEncoder.h"
+#include <string.h>
+
 unsigned int signalLED=2;
-bool enabled=true;
+
 void setup() {
   Serial.begin(9600);
   pinMode(signalLED,OUTPUT);
@@ -17,7 +19,7 @@ void loop()
 
     if(input.hasData())
     {
-        encodeSymbol(input.pop(),10);
+        sendSymbol(input.pop(),10);
     }
 }
 

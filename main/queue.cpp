@@ -1,7 +1,7 @@
 #include "queue.h"
 
-#include "CDCSerialClass.h"
-extern CDCSerialClass Serial;
+#include "HardwareSerial.h"
+extern HardwareSerial Serial;
 
 
 uint16_t CharQueue::currentSize()
