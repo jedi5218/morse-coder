@@ -8,7 +8,7 @@ void setup() {
   Serial.begin(9600);
   pinMode(signalLED,OUTPUT);
   while(!Serial);
-  Serial.println("HelloWorld");
+  Serial.println("Arduino is ready");
 }
 
 void loop()
@@ -19,7 +19,7 @@ void loop()
 
     if(input.hasData())
     {
-        sendSymbol(input.pop(),10);
+        sendSymbol(input.pop(),input.outputSpeed());
     }
 }
 
