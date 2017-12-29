@@ -54,7 +54,6 @@ bool SerialInputReciever::hasData()
 
 char SerialInputReciever::pop()
 {
-    Serial.println("log: data taken out");
     return queue.pop();
 }
 
