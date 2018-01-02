@@ -1,31 +1,30 @@
 #include "debugOutput.h"
 
-#ifdef ENABLE_DEBUG_OUTPUT
-    #include "stream.h"
-    extern Stream& serialStream;
-#endif
+#include "stream.h"
+extern Stream& serialStream;
+
 
 void setSpeedDebugOutput(float speed)
 {
 #ifdef ENABLE_DEBUG_OUTPUT
-    Serial.print( "Speed set to: " );
-    Serial.println( speed );
+    serialStream.print( "Speed set to: " );
+    serialStream.println( speed );
 #endif
 }
 
 void overflowErrorDebugOutput()
 {
 #ifdef ENABLE_DEBUG_OUTPUT
-    Serial.println( "OVERFLOW size limit of the queue reached." );
+    serialStream.println( "OVERFLOW size limit of the queue reached." );
 #endif
 }
 
 void codeDebugOutput(char inputSymbol, char *code)
 {
 #ifdef ENABLE_DEBUG_OUTPUT
-    Serial.print( "Sending morse code for '" );
-    Serial.print( inputSymbol );
-    Serial.print( "' wich is " );
-    Serial.println( code );
+    serialStream.print( "Sending morse code for '" );
+    serialStream.print( inputSymbol );
+    serialStream.print( "' wich is " );
+    serialStream.println( code );
 #endif
 }

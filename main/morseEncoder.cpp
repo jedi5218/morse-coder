@@ -1,11 +1,10 @@
 #include "morseEncoder.h"
 #include "codeTable.h"
-#include "HardwareSerial.h"
-extern HardwareSerial Serial;
+#include "debugOutput.h"
 
 void sendSymbol( char symbol, float wordsPerMin )
 {
-
+    char input=symbol;
     int dot = 60000 / ( 55.0 * wordsPerMin );
 
     if( symbol > 0x60 && symbol < 0x80 )
@@ -15,6 +14,7 @@ void sendSymbol( char symbol, float wordsPerMin )
 
     const char code[ 32 ];
     strcpy_P( code, (char*) pgm_read_word( &( morseAlphabet[symbol] ) ) );
+    codeDebugOutput(input,code);
     for( unsigned int i = 0; i < strlen( code ); i++)
     {
         switch ( code[i] )

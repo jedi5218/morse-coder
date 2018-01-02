@@ -12,8 +12,6 @@ void SerialInputReciever :: appendData()
 {
    char buffer[255];
    strncpy( buffer, Serial.readString().c_str(), 255 );
-   Serial.print( "Recieved string: " );
-   Serial.println( buffer );
    char* begin = strstr( buffer, "/speed" );
 
    if(begin)
