@@ -4,6 +4,7 @@
 #include <stdint.h>
 
 #define QUEUE_SIZE 255
+
 class CharQueue
 {
     char queueArray[QUEUE_SIZE];
@@ -13,7 +14,7 @@ public:
     CharQueue();
     ~CharQueue();
     char pop();
-    bool push(char);
+    bool push( char );
     bool isEmpty();
 };
 

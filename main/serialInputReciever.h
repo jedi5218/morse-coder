@@ -8,8 +8,7 @@ extern HardwareSerial Serial;
 class SerialInputReciever
 {
     CharQueue queue;
-    bool data=true;
-    float speed=20;
+    float speed = 20;
 public:
     static SerialInputReciever& instance();
     static void appendData();
@@ -17,7 +16,7 @@ public:
     char pop();
     float outputSpeed();
 private:
-    SerialInputReciever();
+    SerialInputReciever(){}
 //    SerialInputReciever(const SerialInputReciever& root) = delete;
 //    SerialInputReciever(const SerialInputReciever&& moved) = delete;
 //    SerialInputReciever& operator=(const SerialInputReciever&) = delete;
