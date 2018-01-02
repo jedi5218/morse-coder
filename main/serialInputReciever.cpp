@@ -1,4 +1,5 @@
 #include "serialInputReciever.h"
+#include "debugOutput.h"
 #include "string.h"
 
 SerialInputReciever &SerialInputReciever :: instance()
@@ -29,17 +30,10 @@ void SerialInputReciever :: appendData()
        strncpy( valueStr, begin, end - begin);
        double speed = atof( valueStr );
         if( speed > 0 )
+        {
             instance().speed=speed;
-
-       Serial.print( "SPEED: " );
-       Serial.println( speed );
-       Serial.print( "parsed string: " );
-       Serial.println( buffer );
-       Serial.print( "begin: " );
-       Serial.println( begin );
-       Serial.print( "end: " );
-       Serial.println( end );
-
+            setSpeedDebugOutput(speed);
+        }
        strcpy( begin - 6, end );
    }
 

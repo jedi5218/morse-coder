@@ -1,5 +1,5 @@
 #include "queue.h"
-
+#include "debugOutput.h"
 #include "HardwareSerial.h"
 extern HardwareSerial Serial;
 
@@ -36,11 +36,7 @@ bool CharQueue :: push( char value )
 {
     if( currentSize() >= QUEUE_SIZE )
     {
-        Serial.println( "OVERFLOW" );
-        Serial.print( "Size: " );
-        Serial.print( QUEUE_SIZE );
-        Serial.print( " current: " );
-        Serial.println( currentSize() );
+        overflowErrorDebugOutput();
         return false;
     }
     else

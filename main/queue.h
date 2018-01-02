@@ -1,5 +1,5 @@
-#ifndef QUEUE
-#define QUEUE
+#ifndef QUEUE_H
+#define QUEUE_H
 #include "new.h"
 #include <stdint.h>
 
@@ -18,4 +18,4 @@ public:
     bool isEmpty();
 };
 
-#endif //QUEUE
+#endif //QUEUE_H

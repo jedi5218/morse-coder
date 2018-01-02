@@ -1,5 +1,5 @@
-#ifndef SERIAL_INPUT_RECIEVER
-#define SERIAL_INPUT_RECIEVER
+#ifndef SERIAL_INPUT_RECIEVER_H
+#define SERIAL_INPUT_RECIEVER_H
 #include "HardwareSerial.h"
 extern HardwareSerial Serial;
 #include "queue.h"
@@ -24,6 +24,6 @@ private:
 };
 
 
-#endif //SERIAL_INPUT_RECIEVER
+#endif //SERIAL_INPUT_RECIEVER_H
 
 

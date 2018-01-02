@@ -1,11 +1,12 @@
 #include "serialInputReciever.h"
 #include "morseEncoder.h"
+#include "debugOutput.h"
 #include <string.h>
 
 unsigned int outputPin = 2;
-//Stream& serialStream=Serial;
+Stream& serialStream=Serial;
 
-
+#define ENABLE_DEBUG_OUTPUT
 void setup()
 {
     Serial.begin( 9600 );
